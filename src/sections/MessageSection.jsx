@@ -24,7 +24,6 @@ export default function MessageSection() {
         start: "top center",
         end: "30% center",
         scrub: true,
-        markers: true,
       },
     });
     gsap.to(secMsgSplit.words, {
@@ -34,11 +33,38 @@ export default function MessageSection() {
       scrollTrigger: {
         trigger: ".message-content",
         start: "40% center",
-        end: "60% center",
+        end: "75% center",
         scrub: true,
-        markers: true,
       },
     });
+
+    const revealTl = gsap.timeline({
+      delay: 1,
+      scrollTrigger: {
+        trigger: ".msg-text-scroll",
+        start: "top 60%",
+      },
+    });
+    revealTl.to(".msg-text-scroll", {
+      duration: 1,
+      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+      ease: "circ.inOut",
+    });
+
+    const paragraphTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".message-content p",
+        start: 'top center',
+      }
+    })
+
+    paragraphTl.from(paragraphSplit.words, {
+      yPercent: 300,
+      rotate: 3,
+      ease: 'power1.inOut',
+      duration: 1,
+      stagger: 0.01
+    })
   });
 
   return (
