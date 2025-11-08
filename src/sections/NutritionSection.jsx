@@ -55,7 +55,6 @@ export default function NutritionSection() {
       scrollTrigger: {
         trigger: ".nutrition-section",
         start: "top 80%",
-        markers: true,
       },
     });
 

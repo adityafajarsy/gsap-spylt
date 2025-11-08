@@ -19,7 +19,7 @@ const FlavorSlider = () => {
         scrollTrigger: {
           trigger: ".flavor-section",
           start: "2% top",
-          end: `+=${scrollAmount + 1500}px`,
+          end: `+=${scrollAmount + 1400}px`,
           pin: true,
           scrub: true,
         },
